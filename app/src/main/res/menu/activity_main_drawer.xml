@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:tools="http://schemas.android.com/tools"
+      tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+                android:id="@+id/nav_randomword"
+                android:icon="@drawable/ic_shuffle_black_24dp"
+                android:title="Random Words"/>
+        <item
+                android:id="@+id/nav_search_drawer"
+                android:icon="@drawable/ic_search_black_24dp"
+                android:title="Search"/>
+        <item
+                android:id="@+id/nav_recent"
+                android:icon="@drawable/ic_history_black_24dp"
+                android:title="Recent"/>
+        <item
+                android:id="@+id/nav_Favourite"
+                android:icon="@drawable/ic_favorite_black_24dp"
+                android:title="Favourites"/>
+
+    </group>
+
+    <item android:title="Communicate">
+        <menu>
+            <item
+                    android:id="@+id/nav_share"
+                    android:icon="@drawable/ic_menu_share"
+                    android:title="@string/menu_share"/>
+            <item
+                    android:id="@+id/nav_feedback"
+                    android:icon="@drawable/ic_feedback_black_24dp"
+                    android:title="Feedback"/>
+        </menu>
+    </item>
+
+</menu>

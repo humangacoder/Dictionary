@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".RandomActivity"
+        android:orientation="vertical"
+        android:background="#606060"
+
+>
+
+    <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/toolbarrandom"
+    />
+
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="40dp"
+    >
+
+
+        <TextView
+                android:layout_width="0dp"
+                android:layout_weight="4"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvwordrandom"
+                android:textSize="40sp"
+                android:gravity="left"
+                style="bold"
+                tools:text="Word"
+                android:layout_margin="10dp"
+        />
+
+        <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                tools:text="partOfSpeech"
+                android:layout_height="match_parent"
+                android:id="@+id/tvpartofspeechrandom"
+                android:gravity="center"
+                android:layout_margin="5dp"
+        />
+
+    </LinearLayout>
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvmeaningrandom"
+            tools:text="meaning"
+            android:textSize="20sp"
+            android:textStyle="italic"
+            android:layout_marginTop="140dp"
+    />
+
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvexamplerandom"
+            android:layout_marginTop="270dp"
+            tools:text="example"
+    />
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvsynonymrandom"
+            tools:text="synonym"
+            android:layout_marginTop="220dp"
+    />
+    <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnwikipedia"
+            android:text="wikipedia"
+            android:backgroundTint="#000"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="160dp"
+    />
+
+
+    <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="generate"
+            android:backgroundTint="#000"
+            android:id="@+id/btngenerate"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="70dp"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+    />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/favourites"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="@dimen/fab_margin"
+            android:backgroundTint="#fff"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            app:srcCompat="@drawable/ic_favorite_red_500_24dp"/>
+
+</RelativeLayout>
