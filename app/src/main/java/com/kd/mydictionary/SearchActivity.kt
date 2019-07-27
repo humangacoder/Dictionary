@@ -193,8 +193,7 @@ class SearchActivity : AppCompatActivity(), CoroutineScope {
               db.recentdao().insertrecent(recent)
               Toast.makeText(this@SearchActivity, "Favourite Added", Toast.LENGTH_SHORT).show()
           }catch (e : Exception){
-              Toast.makeText(this@SearchActivity, "Unale to add favourite..", Toast.LENGTH_SHORT).show()
-
+              Toast.makeText(this@SearchActivity, "Unable to add favourite..", Toast.LENGTH_SHORT).show()
           }
         }
 

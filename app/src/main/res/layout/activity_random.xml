@@ -23,6 +23,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_marginTop="40dp"
+            android:id="@+id/wordlayout"
     >
 
 
@@ -57,7 +58,9 @@
             tools:text="meaning"
             android:textSize="20sp"
             android:textStyle="italic"
-            android:layout_marginTop="140dp"
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/wordlayout"
+
     />
 
 
@@ -65,7 +68,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/tvexamplerandom"
-            android:layout_marginTop="270dp"
+            android:layout_marginTop="30dp"
+            android:layout_below="@+id/tvmeaningrandom"
             tools:text="example"
     />
 
@@ -74,7 +78,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/tvsynonymrandom"
             tools:text="synonym"
-            android:layout_marginTop="220dp"
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/tvexamplerandom"
     />
     <Button
             android:layout_width="match_parent"

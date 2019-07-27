@@ -65,20 +65,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
-        val notifyIntent = Intent(this, MyReceiver::class.java)
-        notifyIntent.putExtra("Wordoftheday" , result.word )
-        val pendingIntent = PendingIntent.getBroadcast(
-            this,
-            NOTIFICATION_REMINDER_NIGHT,
-            notifyIntent,
-            PendingIntent.FLAG_UPDATE_CURRENT
-        )
-        val alarmManager = getSystemService(Context.ALARM_SERVICE) as AlarmManager
-        alarmManager.setRepeating(
-            AlarmManager.RTC_WAKEUP, System.currentTimeMillis(),
-            (1000 * 60).toLong(), pendingIntent
-        )
-
 
 
         val fab: FloatingActionButton = findViewById(R.id.fab)

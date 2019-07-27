@@ -63,60 +63,59 @@ class RandomActivity : AppCompatActivity(), CoroutineScope {
             val progress : ProgressDialog
             progress = ProgressDialog.show(this, "Loading",
                 "Please Wait...", true);
-            if (randomWord.word!="null")
-            launch {
-                try {
 
-                    randomWord = getrandomword()
-                    Log.d("Tag", "word : ${randomWord.word}")
+                launch {
+                    try {
 
-
-                    val word = randomWord.word!!
-                    val result = getwordmeaning(word)
-                    val example = getexamples(word)
-                    var synonym = ArrayList<Synonym>()
-                    synonym = getsynonym(word)
-
-                    Log.d("Tag", result.get(0).toString())
-                    Log.d("Tag", example.text.toString())
-
-                    Log.d("Tag", synonym.size.toString())
+                        randomWord = getrandomword()
+                        Log.d("Tag", "word : ${randomWord.word}")
 
 
-                    runOnUiThread {
-                       if (result.size>0&&randomWord.word!="null"){
-                           tvwordrandom.text = randomWord.word
-                           tvpartofspeechrandom.text = result.get(0).partOfSpeech
-                           tvmeaningrandom.text = "Meaning : ${result.get(0).text }"
-                           tvexamplerandom.text = """
+                        val word = randomWord.word!!
+                        val result = getwordmeaning(word)
+                        val example = getexamples(word)
+                        var synonym = ArrayList<Synonym>()
+                        synonym = getsynonym(word)
+
+                        Log.d("Tag", result.get(0).toString())
+                        Log.d("Tag", example.text.toString())
+
+                        Log.d("Tag", synonym.size.toString())
+
+
+                        runOnUiThread {
+                            if (result.size > 0 && randomWord.word != "null") {
+                                tvwordrandom.text = randomWord.word
+                                tvpartofspeechrandom.text = result.get(0).partOfSpeech
+                                tvmeaningrandom.text = "Meaning : ${result.get(0).text}"
+                                tvexamplerandom.text = """
                             Example :
-                            ${example.text?: "Not Found!!".toString()?: "Not Found!!"}
+                            ${example.text ?: "Not Found!!".toString() ?: "Not Found!!"}
                         """.trimIndent()
-                           favourites.isVisible = true
-                           btnwikipedia.isVisible = true
-                       }else{
-                           tvwordrandom.text = "NOT FOUND!!!"
-                           tvmeaningrandom.text = "Please return after an hour or so :)"
-                           tvexamplerandom.text = " That's all for the time being..."
-                           tvsynonymrandom.text = ""
-                       }
+                                favourites.isVisible = true
+                                btnwikipedia.isVisible = true
+                            } else {
+                                tvwordrandom.text = "NOT FOUND!!!"
+                                tvmeaningrandom.text = "Please return after a few minutes :)"
+                                tvexamplerandom.text = " That's all for the time being..."
+                                tvsynonymrandom.text = ""
+                            }
 
-                       if (synonym.size>=1){
-                           tvsynonymrandom.text =
-                               "Synonyms : ${synonym[0].words?.get(0)} , ${synonym[0].words?.get(1) }"
-                       }
+                            if (synonym.size >= 1) {
+                                tvsynonymrandom.text =
+                                    "Synonyms : ${synonym[0].words?.get(0)} , ${synonym[0].words?.get(1)}"
+                            }
+                        }
+                    } catch (e: Exception) {
+                        Log.d("Tag", e.toString())
+                        tvwordrandom.text = "NOT FOUND!!!"
+                        tvmeaningrandom.text = "Please return after an hour or so :)"
+                        tvexamplerandom.text = " That's all for the time being..."
+                        tvsynonymrandom.text = ""
                     }
-                } catch (e: Exception) {
-                    Log.d("Tag", e.toString())
-                }
-                progress.dismiss()
+                    progress.dismiss()
 
-            }else{
-                tvwordrandom.text = "NOT FOUND!!!"
-                tvmeaningrandom.text = "Please return after an hour or so :)"
-                tvexamplerandom.text = " That's all for the time being..."
-                tvsynonymrandom.text = ""
-               }
+                }
 
         }
         favourites.setOnClickListener {
@@ -190,7 +189,7 @@ class RandomActivity : AppCompatActivity(), CoroutineScope {
 
         val key = "wa0lgiwly13awzhdvanwvz562h32dbvzh0own8dsekdamboup"
 
-        val response = wordapi.getrelatedwords(word, false, "synonym", 2, key)
+        val response = wordapi.getrelatedwords(word, false, "synonym", 3, key)
         Log.d("Tag", response.body().toString())
         return if (response.isSuccessful) {
             response.body() ?: ArrayList<Synonym>()
